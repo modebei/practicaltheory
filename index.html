@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Check</title>
+    <style>
+      * {
+         margin: 0;
+         padding: 0;
+         font-family: Tahoma;
+      }
+      .wrapper {
+         width: 100%;
+         height: 100vh;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+      }
+      form {
+         width: 400px;
+         height: 300px;
+         display: flex;
+         flex-direction: column;
+         border: none;
+         align-items: center;
+         padding-top: 40px;
+         box-shadow: 4px 4px 40px #000;
+      }
+      input {
+         width: 300px;
+         height: 50px;
+         margin: 20px 0px;
+         padding-left: 10px;
+         border: none;
+         border-bottom: 1px solid #000;
+         font-size: 20px;
+         outline: none
+      }
+      button {
+         width: 100px;
+         height: 40px;
+         margin-bottom: 20px;
+      }
+    </style>
+ </head>
+</head>
+ <body>
+   <div class="wrapper">
+      <form>
+         <input
+        type="number"
+        class="score" 
+        placeholder="score"
+         />
+         <button class="getGrade" onclick="calculate()">Get Grade</button>
+         <div class="result">Result</div>
+      </form>
+   </div>
+   
+   <script>
+
+      function checkGrade(score) {
+         let grade;
+         if (score > 100 || isNaN(score)) {
+            grade = "you Entered An Invalid Score";
+         } else if (score >= 79 && score <= 100) {
+            grade = "Your Grade is: AA";
+         } else if (score >= 74 && score <= 79) {
+            grade = "Your Grade is: A";
+         } else if (score >= 64 && score <= 74) {
+            grade = "Your Grade is: AB"; 
+         } else if (score >= 54 && score <= 64) {
+            grade = "Your Grade is: B";
+         } else if (score >= 39 && score <= 54) {
+            grade = "Your Grade is: C";
+         } else {
+            grade = "Your Grade is: F";
+         }
+
+         return grade;
+      }
+
+      
+      function calculate() {
+         let score = document.querySelector(".score").value;
+         let ans = checkGrade(score);
+         alert(ans);
+         document.querySelector(".result").innerHTML = score;
+      }
+
+   </script>
+ </body>  
+ </body>
+         
